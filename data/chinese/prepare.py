@@ -3,7 +3,7 @@ import tiktoken
 import numpy as np
 import pandas as pd
 
-with open('data/chinese/chinese.txt', 'r', encoding='utf-8') as file:
+with open('data/chinese/input.txt', 'r', encoding='utf-8') as file:
     data = file.read()
 
 n = len(data)
