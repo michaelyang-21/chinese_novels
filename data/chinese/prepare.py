@@ -1,20 +1,11 @@
 import os
-import requests
 import tiktoken
 import numpy as np
+import pandas as pd
 
-# download the tiny chinese dataset
-input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
-if not os.path.exists(input_file_path):
-    data_url = 'https://gist.github.com/d3c9a1c9a73dbb9aefd8a8c9549b341d.git'
-    with open(input_file_path, 'w') as f:
-        f.write(requests.get(data_url).text)
-    
-    # with open(input_file_path, "w", encoding="utf-8") as f:
-    #     f.write(data_url)
+with open('data/chinese/chinese.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
 
-with open(input_file_path, 'r') as f:
-    data = f.read()
 n = len(data)
 train_data = data[:int(n*0.9)]
 val_data = data[int(n*0.9):]
